@@ -4,7 +4,6 @@ var BodyParser = require("body-parser");
 var UUID = require("uuid");
 
 var app = Express();
-var N1qlQuery = Couchbase.N1qlQuery;
 
 var cluster = new Couchbase.Cluster('couchbase://' + process.env.COUCHBASE_HOST);
 cluster.authenticate(process.env.COUCHBASE_BUCKET_USERNAME, process.env.COUCHBASE_BUCKET_PASSWORD);
@@ -38,16 +37,8 @@ app.get("/test-data/:subscriber_id", function(request, response) {
     if (err) {
       return response.status(500).send(error);
     }
-    //var doc = result.value;
     response.send(result);
   });
-  // var query = N1qlQuery.fromString("SELECT `"+process.env.COUCHBASE_BUCKET+"`.* FROM `"+process.env.COUCHBASE_BUCKET+"`");
-  // bucket.query(query, function(error, result) {
-  //     if(error) {
-  //         return response.status(500).send(error);
-  //     }
-  //     response.send(result);
-  // });
 });
 
 app.post("/save", function(request, response) {
