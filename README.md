@@ -11,6 +11,7 @@ node-cb-docker-helloworld is a dockerized hello world app using node & couchbase
 6. Execute the remaining docker commands.
 7. Be sure to update the credentials with your Couchbase bucket user credentials after you have created the couchbase container
 and added a user account to your bucket.
+Note: See Docker Cheatsheet below if you need help with commands
 
 ```bash
 docker run -t --name db -p 8091-8094:8091-8094 -p 11210:11210 couchbase/server-sandbox:6.0.0
@@ -22,3 +23,6 @@ docker run -d -p 3000:3000 -e COUCHBASE_HOST=172.17.0.2 -e COUCHBASE_BUCKET=subs
 
 The container will insert 10,000 rows of randomly generated ids (and subscriberIds) as well as segments when the container is run.
 @todo: Check for existing rows before creating more
+
+## Docker Cheatsheet
+[Containerization - Docker & K8](https://www.evernote.com/l/AhZMD8tIUKRK2obD6glxK2NdZZSmoviSp1s)
